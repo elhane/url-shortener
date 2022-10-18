@@ -1,5 +1,4 @@
 import './url-list.scss';
-
 import UrlItem from './url-item/url-item';
 import Pagination from '../pagination/pagination';
 import {useMemo, useState} from 'react';

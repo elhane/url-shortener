@@ -11,23 +11,16 @@ function App() {
 
       <main className="main">
         <div className="main__column main__column--left">
-
           <ShortenerForm />
-
           <h2 className="main__title">Мои ссылки</h2>
           <UrlList />
-
         </div>
 
         <div className="main__column main__column--right">
           <h2 className="main__title">Список ссылок</h2>
           <UrlList />
-
         </div>
-
-
       </main>
-
 
     </div>
   );

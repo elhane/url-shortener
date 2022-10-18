@@ -1,9 +1,10 @@
 .shortener-form {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 150px;
   grid-template-rows: auto;
   grid-gap: 15px 20px;
-  padding: 20px 30px;
+  padding:   30px 30px 45px;
   background-color: #F2F2F2;
   border-radius: 5px;
   border: 1px solid #C6C6C6;
@@ -24,7 +25,11 @@
   }
 
   &__error {
-    grid-column: 1/-1;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    line-height: 1;
+    //grid-column: 1/-1;
     font-size: 13px;
     color: #CF261D;
   }
