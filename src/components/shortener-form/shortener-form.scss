@@ -1,0 +1,40 @@
+.shortener-form {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  grid-template-rows: auto;
+  grid-gap: 15px 20px;
+  padding: 20px 30px;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  border: 1px solid #C6C6C6;
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &__label {
+    grid-column: 1/-1;
+    font-size: 18px;
+  }
+
+  &__input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #C6C6C6;
+  }
+
+  &__error {
+    grid-column: 1/-1;
+    font-size: 13px;
+    color: #CF261D;
+  }
+
+  &__button {
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #C6C6C6;
+    cursor: pointer;
+    font-family: inherit;
+  }
+}
