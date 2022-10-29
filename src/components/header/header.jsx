@@ -3,7 +3,9 @@ import "./header.scss";
 function Header() {
     return (
         <header className="header">
-            <h1 className="header__title">Сокращатель</h1>
+          <div className="container">
+            <h1 className="header__title">URL shortener </h1>
+          </div>
         </header>
     );
 }

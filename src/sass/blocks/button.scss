@@ -1,0 +1,11 @@
+.button {
+  border: none;
+  transition: background 0.5s;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+
+  &:hover {
+    background-color: darken($green, 5);
+  }
+}

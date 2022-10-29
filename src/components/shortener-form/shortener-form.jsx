@@ -15,7 +15,7 @@ function ShortenerForm() {
     console.log('validateUrl', value);
     switch (true) {
       case value.length === 0:
-        setError('Please add a link');
+        setError('please add a link');
         setUrlValid(false);
         break;
       case validations.url.test(value):
@@ -23,7 +23,7 @@ function ShortenerForm() {
         setUrlValid(true);
         break;
       case !(validations.url.test(value)):
-        setError('Please enter a valid url');
+        setError('please enter a valid url');
         setUrlValid(false);
         break;
     }
@@ -50,19 +50,14 @@ function ShortenerForm() {
 
   return (
     <form className="shortener-form" action="" onSubmit={handleFormSubmit}>
-      <label
-        className="shortener-form__label"
-        htmlFor="shortener"
-      >
-        Введите ссылку
-      </label>
       <input
         className="shortener-form__input"
         type="text"
         name="shortener"
         onChange={handleFieldChange}
+        placeholder="Enter a link..."
       />
-      <button className="shortener-form__button" type="submit">Сократить</button>
+      <button className="shortener-form__button button" type="submit">Shorten</button>
       {
         !formValid ?
           <span className="shortener-form__error">{error}</span> : ''

@@ -1,8 +1,7 @@
+@use "../../sass/variables.scss";
 @import "../../sass/style";
 
 .app {
-  padding: 30px 0;
+  background-color: $gray;
 }
-
-
 

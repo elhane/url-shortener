@@ -5,21 +5,12 @@ import UrlList from "../url-list/url-list";
 
 function App() {
   return (
-    <div className="app container">
-
+    <div className="app">
       <Header />
 
-      <main className="main">
-        <div className="main__column main__column--left">
-          <ShortenerForm />
-          <h2 className="main__title">Мои ссылки</h2>
-          <UrlList />
-        </div>
-
-        <div className="main__column main__column--right">
-          <h2 className="main__title">Список ссылок</h2>
-          <UrlList />
-        </div>
+      <main className="main container">
+        <ShortenerForm />
+        <UrlList />
       </main>
 
     </div>

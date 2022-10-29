@@ -1,0 +1,40 @@
+@import "../../sass/variables.scss";
+
+.url-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 80px;
+  grid-gap: 20px;
+  align-items: center;
+  padding: 22px 20px;
+  border-radius: 10px;
+  background-color: $white;
+
+  &__link {
+    word-break: break-all;
+    font-weight: 500;
+    text-decoration: none;
+    color: $blue-2;
+
+    &--short {
+      color: $green;
+      font-weight: 600;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
+  &__copy-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    padding: 0 15px;
+    background-color: $green;
+    color: $white;
+    border-radius: 0 10px 10px 0;
+  }
+}

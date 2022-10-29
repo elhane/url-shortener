@@ -8,17 +8,9 @@
   }
 
   &__item {
-    padding: 20px;
-    border-radius: 5px;
-
-    &::before {
-      content: counter(my-counter);
-      counter-increment: my-counter;
-    }
-
-    &:nth-child(odd) {
-      background-color: #F2F2F2;
-      border: 1px solid #C6C6C6;
-    }
+    //&::before {
+    //  content: counter(my-counter);
+    //  counter-increment: my-counter;
+    //}
   }
 }

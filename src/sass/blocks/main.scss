@@ -1,35 +1,9 @@
 .main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 0 30px;
-  padding: 25px;
-
-  @media (min-width: $tablet-width) {
-  }
-
-  @media (min-width: $desktop-width) {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0 50px;
-  }
-
-  &__column {
-    grid-column: span 1;
-
-    @media (min-width: $desktop-width) {
-      &--left {
-        grid-column-start: 1;
-      }
-
-      &--right {
-        grid-column-start: 2;
-      }
-    }
-  }
+  padding-bottom: 40px;
 
   &__title {
     font-size: 18px;
     font-weight: 400;
     margin-top: 0;
   }
-
 }

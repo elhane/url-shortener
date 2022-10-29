@@ -1,3 +1,5 @@
+@import "../../sass/variables.scss";
+
 .pagination {
   display: flex;
   padding: 0;
@@ -11,30 +13,33 @@
     height: 32px;
     text-align: center;
     margin: auto 4px;
-    border-radius: 5px;
-    border: 1px solid #C6C6C6;
-    background-color: #F2F2F2;
+    border-radius: 10px;
+    background-color: $blue;
     font-size: 16px;
     min-width: 32px;
+    transition: background-color 0.5s;
+    cursor: pointer;
+    color: $white;
 
     &:hover {
-      background-color: #C6C6C6;
-      cursor: pointer;
+      background-color: darken($blue, 5);
     }
 
     &--dots {
       background-color: transparent;
       border: none;
+      color: $blue;
+      cursor: default;
 
       &:hover {
         background-color: transparent;
-        cursor: default;
       }
     }
 
-
     &.selected {
-      background-color: rgba(0, 0, 0, 0.08);
+      color: $green;
+      font-weight: 600;
+      pointer-events: none;
     }
 
     &.disabled {

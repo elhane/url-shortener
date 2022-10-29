@@ -1,13 +1,15 @@
+@import "../../sass/variables.scss";
+
 .shortener-form {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 150px;
   grid-template-rows: auto;
   grid-gap: 15px 20px;
-  padding:   30px 30px 45px;
-  background-color: #F2F2F2;
-  border-radius: 5px;
-  border: 1px solid #C6C6C6;
+  padding: 40px 30px;
+  background-color: $blue;
+  border-radius: 15px;
+  //border: 1px solid #C6C6C6;
 
   &:not(:last-child) {
     margin-bottom: 40px;
@@ -15,13 +17,17 @@
 
   &__label {
     grid-column: 1/-1;
-    font-size: 18px;
+    font-size: 16px;
+    color: $white;
+    font-weight: 300;
   }
 
   &__input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #C6C6C6;
+    padding: 15px 10px;
+    border-radius: 7px;
+    //border: 2px solid $green;
+    border-color: transparent;
+    font-family: inherit;
   }
 
   &__error {
@@ -29,17 +35,15 @@
     bottom: 20px;
     left: 30px;
     line-height: 1;
-    //grid-column: 1/-1;
     font-size: 13px;
-    color: #CF261D;
+    color: $red;
   }
 
   &__button {
     padding: 5px 20px;
     font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #C6C6C6;
-    cursor: pointer;
-    font-family: inherit;
+    border-radius: 10px;
+    background-color: $green;
+    color: $white;
   }
 }

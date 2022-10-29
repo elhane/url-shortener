@@ -1,4 +1,3 @@
-// https://www.freecodecamp.org/news/build-a-custom-pagination-component-in-react/
 import classnames from 'classnames';
 import { usePagination, DOTS } from '../hooks/usePagination';
 import './pagination.scss';
@@ -36,6 +35,7 @@ const Pagination = props => {
 
                 return (
                     <li
+                        key={pageNumber}
                         className={classnames('pagination__item', {
                             selected: pageNumber === currentPage
                         })}
