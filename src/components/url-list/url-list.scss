@@ -6,11 +6,4 @@
   &:not(:last-child) {
     margin-bottom: 40px;
   }
-
-  &__item {
-    //&::before {
-    //  content: counter(my-counter);
-    //  counter-increment: my-counter;
-    //}
-  }
 }

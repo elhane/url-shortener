@@ -3,13 +3,16 @@
 .shortener-form {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 150px;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 15px 20px;
   padding: 40px 30px;
   background-color: $blue;
   border-radius: 15px;
-  //border: 1px solid #C6C6C6;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 1fr 150px;
+  }
 
   &:not(:last-child) {
     margin-bottom: 40px;
@@ -24,8 +27,7 @@
 
   &__input {
     padding: 15px 10px;
-    border-radius: 7px;
-    //border: 2px solid $green;
+    border-radius: 10px;
     border-color: transparent;
     font-family: inherit;
   }
@@ -40,7 +42,7 @@
   }
 
   &__button {
-    padding: 5px 20px;
+    padding: 15px 20px;
     font-size: 16px;
     border-radius: 10px;
     background-color: $green;
