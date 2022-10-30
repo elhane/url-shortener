@@ -2,8 +2,8 @@ import './url-list.scss';
 import UrlItem from '../url-item/url-item';
 import Pagination from '../pagination/pagination';
 import {useMemo, useState} from 'react';
-import { links } from '../../mocks/mocks';
-import { PAGE_SIZE } from '../../const';
+import {links} from '../../mocks/mocks';
+import {PAGE_SIZE} from '../../const';
 
 function UrlList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,11 +18,7 @@ function UrlList() {
     <>
       <ol className="url-list">
         {
-          currentListData.map(item => {
-            return (
-              <UrlItem key={item.id} {...item}/>
-            )
-          })
+          currentListData.map((item) => <UrlItem key={item.id} {...item}/>)
         }
       </ol>
 
@@ -31,12 +27,10 @@ function UrlList() {
         currentPage={currentPage}
         totalCount={links.length}
         pageSize={PAGE_SIZE}
-        onPageChange={page => setCurrentPage(page)}
+        onPageChange={(page) => setCurrentPage(Number(page))}
       />
-
     </>
-
-  )
+  );
 }
 
 export default UrlList;

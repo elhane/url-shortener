@@ -1,18 +1,22 @@
-import "./shortener-form.scss";
-import {useEffect, useState} from "react";
+import './shortener-form.scss';
+import React, {ChangeEvent, useEffect, useState} from 'react';
+import {fetchShortLinks} from '../../store/api-actions';
+import {useDispatch} from 'react-redux';
+import {useAppDispatch} from '../../hooks';
 
 function ShortenerForm() {
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
   const [formValid, setFormValid] = useState(false);
   const [urlValid, setUrlValid ] = useState(true);
+  const [formData, setFormData] = useState({input: ''});
+  const dispatch = useAppDispatch();
 
   const validations = {
     url: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/g
   };
 
-  const validateUrl = (value) => {
-    console.log('validateUrl', value);
+  const validateUrl = (value: string) => {
     switch (true) {
       case value.length === 0:
         setError('please add a link');
@@ -27,17 +31,18 @@ function ShortenerForm() {
         setUrlValid(false);
         break;
     }
-  }
+  };
 
-  const handleFormSubmit = (evt) => {
+  const handleFormSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     if (formValid) {
       console.debug('submit');
-      evt.target.reset();
+      dispatch(fetchShortLinks(formData));
+      // evt.target.reset(); //currentTarget?
     }
   };
 
-  const handleFieldChange = (evt) => {
+  const handleFieldChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const {value} = evt.target;
     validateUrl(value);
     setUrl(value);
@@ -45,8 +50,12 @@ function ShortenerForm() {
 
   useEffect(() => {
     setFormValid(urlValid);
-  }, [urlValid]);
+    setFormData({input: url});
+  }, [url, urlValid]);
 
+  useEffect(() => {
+    // fetchShortLinks("")
+  });
 
   return (
     <form className="shortener-form" action="" onSubmit={handleFormSubmit}>
@@ -63,7 +72,7 @@ function ShortenerForm() {
           <span className="shortener-form__error">{error}</span> : ''
       }
     </form>
-  )
+  );
 }
 
 export default ShortenerForm;
