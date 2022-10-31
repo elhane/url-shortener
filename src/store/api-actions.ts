@@ -16,9 +16,8 @@ type asyncThunkConfigType = {
 export const fetchShortLinks = createAsyncThunk<void, Link, asyncThunkConfigType>(
   'links/fetchShortLinks',
   async ({input: link}, {dispatch, extra: api}) => {
-    const { data } = await api.post<LinkData>('', {input: link});
-    console.debug('data',Array.isArray(data));
-    console.debug('data',data);
-    dispatch(setLinks(data));
+    const { data } = await api.post<LinkData[]>('', {input: link});
+    const [{code,long}] = data;
+    dispatch(setLinks({code,long}));
   }
 );

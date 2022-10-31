@@ -1,7 +1,6 @@
 import './shortener-form.scss';
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {fetchShortLinks} from '../../store/api-actions';
-import {useDispatch} from 'react-redux';
 import {useAppDispatch} from '../../hooks';
 
 function ShortenerForm() {
@@ -35,10 +34,10 @@ function ShortenerForm() {
 
   const handleFormSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+
     if (formValid) {
-      console.debug('submit');
       dispatch(fetchShortLinks(formData));
-      // evt.target.reset(); //currentTarget?
+      evt.currentTarget.reset();
     }
   };
 
@@ -52,10 +51,6 @@ function ShortenerForm() {
     setFormValid(urlValid);
     setFormData({input: url});
   }, [url, urlValid]);
-
-  useEffect(() => {
-    // fetchShortLinks("")
-  });
 
   return (
     <form className="shortener-form" action="" onSubmit={handleFormSubmit}>
