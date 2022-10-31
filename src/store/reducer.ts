@@ -13,7 +13,8 @@ const initialState:InitialStateType = {
 const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(setLinks, (state, action) => {
-      state.links.push(action.payload);
+      console.debug('action.payload', action.payload)
+      state.links.push(action.payload)
     });
 });
 

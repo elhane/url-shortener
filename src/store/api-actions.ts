@@ -2,7 +2,7 @@ import {AxiosInstance} from 'axios';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {setLinks} from './action';
 import {store} from './';
-import {Link} from '../types/types';
+import {Link, LinkData} from '../types/types';
 
 export type AppDispatch = typeof store.dispatch;
 export type State = ReturnType<typeof store.getState>;
@@ -15,14 +15,10 @@ type asyncThunkConfigType = {
 
 export const fetchShortLinks = createAsyncThunk<void, Link, asyncThunkConfigType>(
   'links/fetchShortLinks',
-  async (link, {dispatch, extra: api}) => {
-    const { data } = await api.post(`/${JSON.stringify(link)}`);
-    dispatch(setLinks(data));
+  async ({input: link}, {dispatch, extra: api}) => {
+    const { data } = await api.post<LinkData>('', {input: link});
+    console.debug('data',Array.isArray(data));
     console.debug('data',data);
-    // try {
-    //
-    // } catch {
-    //   console.debug('error');
-    // }
+    dispatch(setLinks(data));
   }
 );
