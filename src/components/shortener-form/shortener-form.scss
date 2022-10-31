@@ -28,8 +28,14 @@
   &__input {
     padding: 15px 10px;
     border-radius: 10px;
-    border-color: transparent;
+    border: none;
     font-family: inherit;
+    outline: none;
+    box-shadow: 0 0 0 2px transparent;
+
+    &.invalid {
+      box-shadow: 0 0 0 2px $red;
+    }
   }
 
   &__error {
@@ -47,5 +53,9 @@
     border-radius: 10px;
     background-color: $green;
     color: $white;
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
   }
 }

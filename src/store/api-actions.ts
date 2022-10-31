@@ -13,8 +13,8 @@ type asyncThunkConfigType = {
   extra: AxiosInstance;
 };
 
-export const fetchShortLinks = createAsyncThunk<void, Link, asyncThunkConfigType>(
-  'links/fetchShortLinks',
+export const fetchShortLink = createAsyncThunk<void, Link, asyncThunkConfigType>(
+  'links/fetchShortLink',
   async ({input: link}, {dispatch, extra: api}) => {
     const { data } = await api.post<LinkData[]>('', {input: link});
     const [{code,long}] = data;

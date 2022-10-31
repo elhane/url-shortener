@@ -20,7 +20,7 @@ function UrlItem(props: UrlItemProps) {
   });
 
   return (
-    <li className="url-list__item url-item" data-active={copiedLink === shortLink}>
+    <div className="url-item" data-active={copiedLink === shortLink}>
       <a className="url-item__link url-item__link--full link" href={link.long}>{link.long}</a>
       <a className="url-item__link url-item__link--short link" href={shortLink}>{shortLink}</a>
       <button
@@ -30,7 +30,7 @@ function UrlItem(props: UrlItemProps) {
       >
         { copiedLink === shortLink ? 'Copied' : 'Copy'}
       </button>
-    </li>
+    </div>
   );
 }
 

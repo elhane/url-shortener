@@ -4,6 +4,7 @@ import Pagination from '../pagination/pagination';
 import {useMemo, useState} from 'react';
 import {PAGE_SIZE} from '../../const';
 import {useAppSelector} from '../../hooks';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function UrlList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,7 +13,7 @@ function UrlList() {
   const currentListData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
     const lastPageIndex = firstPageIndex + PAGE_SIZE;
-    return links.slice(firstPageIndex, lastPageIndex).reverse();
+    return links.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, links]);
 
   const [copiedLink, setCopiedLink] = useState<string | null>(null);
@@ -26,16 +27,21 @@ function UrlList() {
   return (
     <>
       <ol className="url-list">
-        {
-          currentListData.map((link) => (
-            <UrlItem
-              key={link.code}
-              copiedLink={copiedLink}
-              onClick={copyToClipboard}
-              link={link}
-            />
-          ))
-        }
+        { currentListData.map((link) => (
+          <AnimatePresence key={link.code}>
+            <motion.li
+              className="url-list__item"
+              initial={{opacity: 0, height: 0}}
+              animate={{opacity: 1, height: 'auto'}}
+            >
+              <UrlItem
+                copiedLink={copiedLink}
+                onClick={copyToClipboard}
+                link={link}
+              />
+            </motion.li>
+          </AnimatePresence>
+        )) }
       </ol>
 
       <Pagination

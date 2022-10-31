@@ -1,7 +1,8 @@
 import './shortener-form.scss';
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {fetchShortLinks} from '../../store/api-actions';
+import {fetchShortLink} from '../../store/api-actions';
 import {useAppDispatch} from '../../hooks';
+import classnames from 'classnames';
 
 function ShortenerForm() {
   const [url, setUrl] = useState('');
@@ -24,6 +25,7 @@ function ShortenerForm() {
       case validations.url.test(value):
         setError('');
         setUrlValid(true);
+        setUrl(value);
         break;
       case !(validations.url.test(value)):
         setError('please enter a valid url');
@@ -36,7 +38,8 @@ function ShortenerForm() {
     evt.preventDefault();
 
     if (formValid) {
-      dispatch(fetchShortLinks(formData));
+      dispatch(fetchShortLink(formData));
+      setFormValid(false);
       evt.currentTarget.reset();
     }
   };
@@ -44,27 +47,30 @@ function ShortenerForm() {
   const handleFieldChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const {value} = evt.target;
     validateUrl(value);
-    setUrl(value);
   };
 
   useEffect(() => {
     setFormValid(urlValid);
-    setFormData({input: url});
+    if (url) {
+      setFormData({input: url});
+    }
   }, [url, urlValid]);
 
   return (
     <form className="shortener-form" action="" onSubmit={handleFormSubmit}>
       <input
-        className="shortener-form__input"
+        className={classnames({
+          'shortener-form__input': true,
+          'invalid': !urlValid
+        })}
         type="text"
         name="shortener"
         onChange={handleFieldChange}
         placeholder="Enter a link..."
       />
-      <button className="shortener-form__button button" type="submit">Shorten</button>
+      <button className="shortener-form__button button" type="submit" disabled={!urlValid || !formValid}>Shorten</button>
       {
-        !formValid ?
-          <span className="shortener-form__error">{error}</span> : ''
+        !formValid ? <span className="shortener-form__error">{error}</span> : ''
       }
     </form>
   );
