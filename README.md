@@ -10,7 +10,7 @@ To build this project I used [GoTiny API](https://github.com/robvanbakel/gotiny-
 </div>
 <hr />
 <div>
-    <img src="./url-shortener.gif" alt="project gif" width="3196" height="2036" style="width: 100%; height: auto">
+    <img src="./url-shortener.gif" alt="project gif" width="3196" style="width: 100%; height: auto">
 </div>
 <hr />
 
