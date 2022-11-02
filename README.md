@@ -10,8 +10,10 @@ To build this project I used [GoTiny API](https://github.com/robvanbakel/gotiny-
 </div>
 <hr />
 <div>
-    <img src="./url-shortener.gif" alt="" width="1598" height="1018" style="width: 100%; height: auto">
+    <img src="./url-shortener.gif" alt="" width="3196" style="width: 100%; height: auto">
 </div>
+
+[//]: # (### 👉 [view published version]&#40;&#41;)
 <hr />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
