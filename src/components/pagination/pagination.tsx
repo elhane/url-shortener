@@ -29,24 +29,22 @@ const Pagination = (props: PaginationProps) => {
   });
 
   if (currentPage === 0 || paginationRange?.length < 2) {
-      return null;
+    return null;
   }
 
   return (
     <ul
       className={classnames('pagination', { [className]: className })}
     >
-      {paginationRange?.map(pageNumber => {
+      {paginationRange?.map((pageNumber) => {
         if (pageNumber === DOTS) {
-            return <li className="pagination__item pagination__item--dots">&#8230;</li>;
+          return <li className="pagination__item pagination__item--dots" key={'dots'}>&#8230;</li>;
         }
 
         return (
           <li
             key={pageNumber}
-            className={classnames('pagination__item', {
-                selected: pageNumber === currentPage
-            })}
+            className={classnames('pagination__item', {selected: pageNumber === currentPage})}
             onClick={() => onPageChange(Number(pageNumber))}
           >
             {pageNumber}
